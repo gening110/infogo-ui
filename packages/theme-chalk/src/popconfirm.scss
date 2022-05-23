@@ -1,0 +1,61 @@
+@import "mixins/mixins";
+@import "common/var";
+
+.el-popconfirm_popover{
+  padding: 0;
+}
+@include b(popconfirm) {
+  @include e(main) {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    margin: 0;
+    color: $--color-text-primary;
+  }
+  @include e(icon) {
+    margin-right: 5px;
+  }
+  @include e(popover) {
+    padding: 0;
+  }
+  @include e(action) {
+    text-align: right; 
+    margin: 0;
+    &.btn-wrap{
+      display: flex;
+      height: 32px;
+      line-height: 32px;
+      margin: 0;
+      border-top: 1px solid $--divider-color-base;
+      .el-button {
+        display: inline-block;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        border: none;
+        padding: 0;
+        border-radius: 0px;
+        cursor: pointer;
+        margin: 0;
+        &:focus{
+          background: #fff;
+        }
+        &.lft-foot {
+          border-right: 1px solid $--divider-color-base;
+          color: #686E84;
+          border-bottom-left-radius: 4px;
+        }
+        &.rit-foot {
+          color: $--color-primary;
+          border-bottom-right-radius: 4px;
+        }
+        &:hover {
+          background: #5C73E6;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

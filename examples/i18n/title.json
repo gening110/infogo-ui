@@ -1,0 +1,26 @@
+{
+  "zh-CN": {
+    "home": "Infogo - 网站快速成型工具",
+    "guide": "指南 | Infogo",
+    "component": "组件 | Infogo",
+    "resource": "资源 | Infogo"
+  },
+  "en-US": {
+    "home": "Infogo - A Desktop UI Toolkit for Web",
+    "guide": "Guide | Infogo",
+    "component": "Component | Infogo",
+    "resource": "Resource | Infogo"
+  },
+  "es": {
+    "home": "Infogo - Un kit de interfaz de usuario para la web",
+    "guide": "Guía | Infogo",
+    "component": "Componentes | Infogo",
+    "resource": "Recursos | Infogo"
+  },
+  "fr-FR": {
+    "home": "Infogo - Un kit de composants d'interface pour le web",
+    "guide": "Guide | Infogo",
+    "component": "Composants | Infogo",
+    "resource": "Ressources | Infogo"
+  }
+}

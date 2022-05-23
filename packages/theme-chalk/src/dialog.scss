@@ -1,0 +1,160 @@
+@import "mixins/mixins";
+@import "mixins/utils";
+@import "common/var";
+@import "common/popup";
+
+@include b(dialog) {
+  position: relative;
+  margin: 0 auto;
+  background: $--dialog-background-color;
+  border-radius:$--border-radius-base;
+  box-shadow: $--dialog-box-shadow;
+  box-sizing: border-box;
+  width: 50%;
+  top: 40%;
+  transform: translateY(-50%);
+  @include when(fullscreen){
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    overflow: auto;
+    top: 50%;
+  }
+
+  @include e(wrapper) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+  }
+
+  @include e(header) {
+    padding: 12px 24px 11px;
+    border-bottom: 1px solid $--divider-color-base;
+  }
+
+  @include e(headerbtn) {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: $--message-close-size;
+
+    .el-dialog__close {
+      color: $--color-info;
+    }
+
+    &:focus, &:hover {
+      .el-dialog__close {
+        color: $--color-primary;
+      }
+    }
+  }
+
+  @include e(title) {
+    font-weight: 500;
+    line-height: $--dialog-font-line-height;
+    font-size: $--dialog-title-font-size;
+    color: $--color-text-primary;
+  }
+
+  @include e(body) {
+    padding: 24px;
+    color: $--color-text-regular;
+    font-size: $--dialog-content-font-size;
+    word-break: break-all;
+  }
+
+  @include e(footer) {
+    text-align: right;
+    box-sizing: border-box;
+    .dialog-footer {
+      padding: $--dialog-padding-primary;
+      padding-top: 10px;
+    }
+    .dialog-default-footer{
+      width: 100%;
+      .btn-wrap{
+        display: flex;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        border-top: 1px solid $--divider-color-base;
+        span {
+          display: inline-block;
+          width: 100%;
+          box-sizing: border-box;
+          font-size: 14px;
+          font-weight: 400;
+          text-align: center;
+          cursor: pointer;
+          &.lft-foot {
+            border-right: 1px solid $--divider-color-base;
+            color: #686E84;
+            border-bottom-left-radius: 2px;
+          }
+          &.rit-foot {
+            color: $--color-primary;
+            border-bottom-right-radius: 2px;
+          }
+          &:hover {
+            background: #5C73E6;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  // 内容居中布局
+  @include m(center) {
+    text-align: center;
+
+    @include e(body) {
+      text-align: initial;
+      padding: 25px ($--dialog-padding-primary + 5px) 30px;
+    }
+
+    @include e(footer) {
+      text-align: inherit;
+    }
+  }
+}
+
+.dialog-fade-enter-active {
+  animation: dialog-fade-in .3s;
+}
+
+.dialog-fade-leave-active {
+  animation: dialog-fade-out .3s;
+}
+
+@keyframes dialog-fade-in {
+  0% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -20px, 0);
+    opacity: 0;
+  }
+}

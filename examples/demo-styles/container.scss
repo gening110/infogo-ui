@@ -1,0 +1,53 @@
+.el-header,
+.el-footer {
+  background-color: #9EACF1;
+  color: #333;
+  line-height: 60px;
+}
+.el-container{
+  margin-top: 10px;
+  .el-container{
+    margin-top: 0;
+  }
+}
+.el-aside {
+  color: #333;
+}
+
+#chang-jian-ye-mian-bu-ju + .demo-container {
+  .el-header,
+  .el-footer {
+    text-align: center;
+  }
+  .el-header,
+  .el-footer,
+  .el-aside,
+  .el-main{
+    border-radius: 6px;
+  }
+  .el-aside {
+    background-color: #DBE0FF;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  .el-main {
+    background-color: #ECEFFF;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+  }
+
+  & > .source > .el-container {
+    margin-bottom: 40px;
+
+    &:nth-child(5) .el-aside,
+    &:nth-child(6) .el-aside {
+      line-height: 260px;
+    }
+
+    &:nth-child(7) .el-aside {
+      line-height: 320px;
+    }
+  }
+}

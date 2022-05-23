@@ -1,0 +1,187 @@
+@import "mixins/mixins";
+@import "common/var";
+
+@include b(alert) {
+  width: 100%;
+  padding: $--alert-padding;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: $--alert-border-radius;
+  position: relative;
+  background-color: $--color-white;
+  overflow: hidden;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  transition: opacity .2s;
+  border: 1px solid;
+  &.is-close {
+    padding-right: 40px;
+  }
+  &.is-title{
+    padding: 16px;
+    &.is-close {
+      padding-right: 40px;
+    }
+  }
+  @include when(light) {
+    .el-alert__closebtn {
+      color: $--color-text-secondary;
+    }
+  }
+
+  @include when(dark) {
+    .el-alert__closebtn {
+      color: $--color-white;
+    }
+    .el-alert__description {
+      color: $--color-white;
+    }
+  }
+
+  @include when(center) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  @include m(success) {
+    &.is-light {
+      border-color: $--color-success-light;
+      background-color: $--alert-success-color;
+      // color: $--color-success;
+      color: $--color-text-primary;
+
+      .el-alert__description {
+        // color: $--color-success;
+        color: $--color-text-primary;
+      }
+      .el-alert__icon{
+        color: $--color-success;
+      }
+    }
+
+    &.is-dark {
+      background-color: $--color-success;
+      color: $--color-white;
+    }
+  }
+
+  @include m(info) {
+    &.is-light {
+      border-color: $--color-primary-light-8;
+      background-color: $--alert-info-color;
+      // color: $--color-info;
+      color: $--color-text-primary;
+    }
+
+    &.is-dark {
+      background-color: $--color-primary;
+      color: $--color-white;
+    }
+
+    .el-alert__description {
+      // color: $--color-info;
+      color: $--color-text-primary;
+    }
+    .el-alert__icon{
+      color: $--color-primary;
+    }
+  }
+
+  @include m(warning) {
+    &.is-light {
+      border-color: $--color-warning-light;
+      background-color: $--alert-warning-color;
+      // color: $--color-warning;
+      color: $--color-text-primary;
+
+      .el-alert__description {
+        // color: $--color-warning;
+        color: $--color-text-primary;
+      }
+      .el-alert__icon{
+        color: $--color-warning;
+      }
+    }
+
+    &.is-dark {
+      background-color: $--color-warning;
+      color: $--color-white;
+    }
+  }
+
+  @include m(error) {
+    &.is-light {
+      border-color: $--color-danger-light;
+      background-color: $--alert-danger-color;
+      // color: $--color-danger;
+      color: $--color-text-primary;
+
+      .el-alert__description {
+        // color: $--color-danger;
+        color: $--color-text-primary;
+      }
+      .el-alert__icon{
+        color: $--color-danger;
+      }
+    }
+
+    &.is-dark {
+      background-color: $--color-danger;
+      color: $--color-white;
+    }
+  }
+
+  @include e(content) {
+    display: table-cell;
+  }
+
+  @include e(icon) {
+    font-size: $--alert-icon-size;
+    width: $--alert-icon-size;
+    margin-right: 10px;
+    @include when(big) {
+      font-size: $--alert-icon-large-size;
+      width: $--alert-icon-large-size;
+      margin-right: 16px;
+    }
+  }
+
+  @include e(title) {
+    font-size: $--alert-title-font-size;
+    line-height: 20px;
+    @include when(bold) {
+      font-weight: bold;
+      font-size: $--alert-title-bold-font-size;
+    }
+  }
+
+  & .el-alert__description {
+    font-size: $--alert-description-font-size;
+    margin: 8px 0 0 0;
+    display: flex;
+    width: 100%;
+    // overflow: hidden;
+    // white-space: nowrap;
+  }
+
+  @include e(closebtn) {
+    font-size: $--alert-close-font-size;
+    opacity: 1;
+    position: absolute;
+    top: 13px;
+    right: 16px;
+    cursor: pointer;
+
+    @include when(customed) {
+      font-style: normal;
+      font-size: $--alert-close-customed-font-size;
+      top: 9px;
+    }
+  }
+}
+
+.el-alert-fade-enter,
+.el-alert-fade-leave-active {
+  opacity: 0;
+}
